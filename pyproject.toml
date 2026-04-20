@@ -1,0 +1,30 @@
+[project]
+name = "pqc-nexus"
+version = "0.1.0"
+description = "Quantum algorithm reference suite + PQC/ML-KEM WebSocket compliance tester"
+requires-python = ">=3.11"
+dependencies = [
+    "qiskit>=1.3",
+    "qiskit-aer>=0.15",
+    "numpy>=1.26",
+    "scipy>=1.13",
+    "websockets>=13.0",
+    "rich>=13.7",
+    "typer>=0.12",
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+]
+
+[project.optional-dependencies]
+oqs = ["oqs-python>=0.10"]
+
+[project.scripts]
+pqc-nexus = "runner:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
